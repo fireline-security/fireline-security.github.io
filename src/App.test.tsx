@@ -3,16 +3,37 @@ import { describe, expect, it } from 'vitest'
 import App from './App'
 
 describe('App', () => {
-  it('renders the project vision and primary navigation', () => {
+  it('renders the Fireline manifesto and future vocabulary', () => {
     render(() => <App />)
 
     expect(
-      screen.getByRole('heading', { name: 'Keep the evidence close.' }),
+      screen.getByRole('heading', {
+        name: 'Define the line. Stop the spread.',
+      }),
     ).toBeTruthy()
     expect(
-      screen.getByRole('navigation', { name: 'Primary navigation' }),
+      screen.getByRole('heading', {
+        name: 'No shortcuts through the hard part.',
+      }),
     ).toBeTruthy()
-    expect(screen.getByText('The source is part of the decision.')).toBeTruthy()
+    expect(
+      screen.getByRole('heading', {
+        name: 'Posture is imperfect. Boundaries can be clear.',
+      }),
+    ).toBeTruthy()
+    expect(
+      screen.getByText('an opaque score that asks to be trusted.', {
+        exact: false,
+      }),
+    ).toBeTruthy()
+    expect(
+      screen.getByText('Watchtower is the future place', { exact: false }),
+    ).toBeTruthy()
+    expect(
+      screen.getByRole('img', {
+        name: 'A topographic map with evidence signals crossing a bright Fireline boundary on their way toward a durable concern.',
+      }),
+    ).toBeTruthy()
   })
 
   it('links each Fireline project repository to its source', () => {
@@ -33,5 +54,11 @@ describe('App', () => {
         `https://github.com/fireline-security/${repository}`,
       )
     }
+
+    expect(
+      screen
+        .getByRole('link', { name: 'Fireline on GitHub' })
+        .getAttribute('href'),
+    ).toBe('https://github.com/fireline-security')
   })
 })
