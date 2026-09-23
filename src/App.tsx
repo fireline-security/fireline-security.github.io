@@ -29,10 +29,10 @@ const repositories: ProjectRepository[] = [
   },
 ]
 
-function Brand(props: { href: string; label: string }) {
+function Brand(props: { href: string; label: string; tone: 'dark' | 'light' }) {
   return (
     <a class="brand" href={props.href} aria-label={props.label}>
-      <img src="/brand/fireline-wordmark-light.svg" alt="" />
+      <img src={`/brand/fireline-wordmark-${props.tone}.svg`} alt="" />
     </a>
   )
 }
@@ -58,7 +58,7 @@ function App() {
 
       <header class="site-header">
         <div class="site-frame header-inner">
-          <Brand href="#top" label="Fireline home" />
+          <Brand href="#top" label="Fireline home" tone="dark" />
           <a
             class="source-link source-link-header"
             href="https://github.com/fireline-security"
@@ -87,57 +87,57 @@ function App() {
                 </p>
               </div>
             </div>
-            <div class="hero-coordinate" aria-hidden="true">
-              <span>39° 48′ N</span>
-              <span>104° 54′ W</span>
-            </div>
           </div>
         </section>
 
-        <section class="premise" aria-labelledby="premise-title">
+        <section class="premise" id="why" aria-labelledby="premise-title">
           <div class="site-frame premise-grid">
             <p class="section-kicker">The flawed posture</p>
             <div class="premise-copy">
               <h2 id="premise-title">
                 Posture is imperfect. <span>Boundaries can be clear.</span>
               </h2>
-              <p>
-                A Fireline is a versioned, explainable boundary around
-                unacceptable risk. It combines what scanners observed with the
-                business context scanners cannot know: exposure, environment,
-                ownership, asset importance, age, and accepted exceptions.
-              </p>
-              <p class="premise-emphasis">
-                The result is a boundary a team can inspect, revise, and stand
-                behind.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <section class="refusal" aria-labelledby="refusal-title">
-          <div class="site-frame refusal-inner">
-            <p class="section-kicker">A refusal</p>
-            <div>
-              <h2 id="refusal-title">No shortcuts through the hard part.</h2>
-              <div class="refusal-lines">
+              <div class="premise-body">
                 <p>
-                  <span>Not</span> an opaque score that asks to be trusted.
+                  A Fireline is a versioned, explainable boundary around
+                  unacceptable risk. It combines what scanners observed with the
+                  business context scanners cannot know: exposure, environment,
+                  ownership, asset importance, age, and accepted exceptions.
                 </p>
-                <p>
-                  <span>Not</span> a flattened queue that forgets where a claim
-                  came from.
-                </p>
-                <p>
-                  <span>Not</span> a system that calls correlation solved before
-                  the evidence can bear it.
+                <p class="premise-emphasis">
+                  The result is a boundary a team can inspect, revise, and stand
+                  behind.
                 </p>
               </div>
             </div>
           </div>
         </section>
 
-        <section class="map-section" aria-labelledby="map-title">
+        <section class="refusal-section" aria-labelledby="refusal-title">
+          <div class="site-frame refusal">
+            <div class="refusal-inner">
+              <p class="section-kicker">A refusal</p>
+              <div>
+                <h2 id="refusal-title">No shortcuts through the hard part.</h2>
+                <div class="refusal-lines">
+                  <p>
+                    <span>Not</span> an opaque score that asks to be trusted.
+                  </p>
+                  <p>
+                    <span>Not</span> a flattened queue that forgets where a
+                    claim came from.
+                  </p>
+                  <p>
+                    <span>Not</span> a system that calls correlation solved
+                    before the evidence can bear it.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="map-section" id="idea" aria-labelledby="map-title">
           <div class="site-frame map-heading">
             <div>
               <p class="section-kicker section-kicker-light">The line</p>
@@ -202,16 +202,22 @@ function App() {
           </div>
         </section>
 
-        <section class="watchtower" aria-labelledby="watchtower-title">
+        <section
+          class="watchtower"
+          id="watchtower"
+          aria-labelledby="watchtower-title"
+        >
           <div class="site-frame watchtower-grid">
             <p class="section-kicker section-kicker-light">The horizon</p>
-            <div>
-              <p class="watchtower-mark" aria-hidden="true">
-                / WATCHTOWER
-              </p>
-              <h2 id="watchtower-title">
-                A place for the concern, not just the signal.
-              </h2>
+            <div class="watchtower-copy">
+              <div>
+                <p class="watchtower-mark" aria-hidden="true">
+                  / WATCHTOWER
+                </p>
+                <h2 id="watchtower-title">
+                  A place for the concern, not just the signal.
+                </h2>
+              </div>
               <p>
                 Watchtower is the future place where recurring evidence can
                 become an explainable concern—without severing the thread to
@@ -237,7 +243,7 @@ function App() {
 
       <footer class="site-footer">
         <div class="site-frame footer-top">
-          <Brand href="#top" label="Back to top" />
+          <Brand href="#top" label="Back to top" tone="light" />
           <a class="source-link" href="https://github.com/fireline-security">
             Fireline on GitHub <Arrow />
           </a>

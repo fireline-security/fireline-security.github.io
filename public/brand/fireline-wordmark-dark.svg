@@ -1,7 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3974 1380" role="img" aria-labelledby="fl-word-title">
-  <title id="fl-word-title">Fireline</title>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3974 1380" role="img" aria-labelledby="fl-dark-word-title">
+  <title id="fl-dark-word-title">Fireline</title>
   <g transform="translate(0,1065) scale(1,-1)">
-    <g fill="#eee4cd">
+    <g fill="#171f19">
     <path transform="translate(40,0)" d="M77 0V698H540V563H229V420H494V286H229V0Z"/>
     <path transform="translate(625,0)" d="M69 525H217V0H69Z"/>
     <path transform="translate(911,0)" d="M69 0V525H217V411H222Q226 433 236.0 453.5Q246 474 262.5 490.0Q279 506 302.0 515.5Q325 525 356 525H382V387H345Q280 387 248.5 370.0Q217 353 217 307V0Z"/>

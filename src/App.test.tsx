@@ -3,7 +3,7 @@ import { describe, expect, it } from 'vitest'
 import App from './App'
 
 describe('App', () => {
-  it('renders the Fireline manifesto and future vocabulary', () => {
+  it('renders the Fireline vision and paper-header source link', () => {
     render(() => <App />)
 
     expect(
@@ -21,6 +21,12 @@ describe('App', () => {
         name: 'Posture is imperfect. Boundaries can be clear.',
       }),
     ).toBeTruthy()
+    expect(
+      screen.getByRole('link', { name: 'Source' }).getAttribute('href'),
+    ).toBe('https://github.com/fireline-security')
+    expect(
+      document.querySelector('.site-header .brand img')?.getAttribute('src'),
+    ).toBe('/brand/fireline-wordmark-dark.svg')
     expect(
       screen.getByText('an opaque score that asks to be trusted.', {
         exact: false,
