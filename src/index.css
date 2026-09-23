@@ -244,21 +244,20 @@ h1 em {
 
 .premise,
 .language,
-.question,
-.refusal-section {
+.question {
   background: var(--paper) var(--topo-light);
 }
 
+.smoke-problem,
 .premise,
 .language,
-.watchtower,
 .question {
   padding: clamp(5.2rem, 10vw, 9.5rem) 0;
 }
 
+.smoke-grid,
 .premise-grid,
-.language-grid,
-.watchtower-grid {
+.language-grid {
   display: grid;
   grid-template-columns: minmax(155px, 0.48fr) minmax(0, 1.52fr);
   gap: clamp(2rem, 8vw, 8rem);
@@ -269,15 +268,59 @@ h1 em {
   color: var(--fire);
 }
 
-.premise-copy,
-.watchtower-copy {
+.smoke-problem {
+  background: var(--ink) var(--topo-dark);
+  color: var(--paper);
+}
+
+.smoke-copy h2 {
+  max-width: 13ch;
+  margin: 0;
+  color: var(--paper);
+  font-size: clamp(3.25rem, 5.2vw, 5.7rem);
+  letter-spacing: -0.065em;
+  line-height: 0.9;
+}
+
+.smoke-copy h2 span {
+  color: var(--ember);
+}
+
+.smoke-lead {
+  max-width: 47rem;
+  margin: clamp(2rem, 4vw, 3rem) 0 0;
+  color: var(--paper-muted);
+  font-size: clamp(1.05rem, 1.6vw, 1.24rem);
+}
+
+.smoke-list {
   display: grid;
-  grid-template-columns: minmax(0, 1.04fr) minmax(250px, 0.96fr);
-  align-items: end;
-  gap: clamp(2rem, 6vw, 6.5rem);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: clamp(2.4rem, 5vw, 4rem);
+  border: 1px solid var(--paper-line);
+}
+
+.smoke-list article {
+  min-width: 0;
+  padding: 1.45rem;
+}
+
+.smoke-list h3 {
+  margin: 0;
+  color: var(--paper);
+  font-size: 0.98rem;
+  letter-spacing: -0.025em;
+}
+
+.smoke-list p {
+  margin: 0.45rem 0 0;
+  color: var(--paper-muted);
+  font-size: 0.88rem;
+  line-height: 1.45;
 }
 
 .premise-copy {
+  display: grid;
   align-items: start;
   grid-template-columns: minmax(470px, 1.15fr) minmax(230px, 0.85fr);
   gap: clamp(2rem, 4vw, 4.5rem);
@@ -288,10 +331,8 @@ h1 em {
 }
 
 .premise h2,
-.refusal h2,
 .map-heading h2,
 .language h2,
-.watchtower h2,
 .question h2 {
   margin: 0;
   letter-spacing: -0.065em;
@@ -318,54 +359,6 @@ h1 em {
   line-height: 1.35;
 }
 
-.refusal-section {
-  padding: clamp(2rem, 5vw, 5.2rem) 0;
-}
-
-.refusal {
-  padding: clamp(3.5rem, 7vw, 7.2rem) clamp(1.7rem, 6vw, 6rem);
-  background: var(--fire);
-  color: var(--ink);
-}
-
-.refusal-inner {
-  display: grid;
-  grid-template-columns: minmax(155px, 0.48fr) minmax(0, 1.52fr);
-  gap: clamp(2rem, 8vw, 8rem);
-}
-
-.refusal .section-kicker {
-  color: var(--ink);
-}
-
-.refusal h2 {
-  max-width: 10ch;
-  font-size: clamp(3rem, 5.5vw, 5.5rem);
-}
-
-.refusal-lines {
-  max-width: 48rem;
-  margin-top: clamp(2.6rem, 5vw, 4.5rem);
-  border-top: 1px solid rgb(23 31 25 / 36%);
-}
-
-.refusal-lines p {
-  margin: 0;
-  padding: 1rem 0 1.1rem;
-  border-bottom: 1px solid rgb(23 31 25 / 36%);
-  font-size: clamp(1.02rem, 1.65vw, 1.25rem);
-  line-height: 1.35;
-}
-
-.refusal-lines span {
-  margin-right: 0.18em;
-  font-family: "IBM Plex Mono", ui-monospace, monospace;
-  font-size: 0.67em;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
-
 .premise h2 span {
   display: block;
 }
@@ -382,8 +375,7 @@ h1 em {
   margin-bottom: clamp(2.6rem, 5vw, 4.6rem);
 }
 
-.section-kicker-light,
-.watchtower-mark {
+.section-kicker-light {
   color: var(--fire);
 }
 
@@ -474,6 +466,10 @@ h1 em {
   border-bottom: 1px solid var(--ink-line);
 }
 
+.smoke-list article + article {
+  border-left: 1px solid var(--paper-line);
+}
+
 .language-list h3 {
   margin: 0;
   color: var(--fire);
@@ -489,26 +485,6 @@ h1 em {
   font-size: 0.97rem;
 }
 
-.watchtower-copy {
-  align-items: start;
-}
-
-.watchtower-mark {
-  margin: 0 0 1.1rem;
-}
-
-.watchtower h2 {
-  max-width: 14ch;
-  font-size: clamp(3rem, 4.85vw, 5rem);
-}
-
-.watchtower-copy > p {
-  max-width: 34rem;
-  margin: 2.65rem 0 0;
-  color: var(--paper-muted);
-  font-size: clamp(1.05rem, 1.6vw, 1.23rem);
-}
-
 .question-inner {
   max-width: 960px;
 }
@@ -517,13 +493,6 @@ h1 em {
   max-width: 15ch;
   margin-top: 1rem;
   font-size: clamp(3rem, 5.6vw, 5.8rem);
-}
-
-.question .question-inner > p:last-child {
-  max-width: 34rem;
-  margin: 1.8rem 0 0;
-  color: var(--ink-muted);
-  font-size: 1.05rem;
 }
 
 .site-footer {
@@ -590,14 +559,9 @@ h1 em {
 }
 
 @media (max-width: 1100px) {
-  .premise-copy,
-  .watchtower-copy {
+  .premise-copy {
     grid-template-columns: 1fr;
     gap: 1.8rem;
-  }
-
-  .watchtower-copy > p {
-    margin-top: 0;
   }
 
   .premise-body {
@@ -611,10 +575,9 @@ h1 em {
   }
 
   .hero-title-wrap,
+  .smoke-grid,
   .premise-grid,
-  .refusal-inner,
   .language-grid,
-  .watchtower-grid,
   .map-heading {
     grid-template-columns: 1fr;
   }
@@ -624,9 +587,8 @@ h1 em {
   }
 
   .premise-grid,
-  .refusal-inner,
-  .language-grid,
-  .watchtower-grid {
+  .smoke-grid,
+  .language-grid {
     gap: 1.6rem;
   }
 
@@ -634,11 +596,18 @@ h1 em {
     gap: 1.4rem;
   }
 
+  .smoke-list {
+    grid-template-columns: 1fr;
+  }
+
+  .smoke-list article + article {
+    border-top: 1px solid var(--paper-line);
+    border-left: 0;
+  }
+
   .premise h2,
-  .refusal h2,
   .map-heading h2,
   .language h2,
-  .watchtower h2,
   .question h2 {
     max-width: 13ch;
   }
@@ -684,23 +653,15 @@ h1 em {
 
   .premise,
   .language,
-  .watchtower,
   .question,
   .map-section {
     padding-top: 4.5rem;
     padding-bottom: 4.5rem;
   }
 
-  .refusal-section {
-    padding: 1rem 0;
-  }
-
-  .refusal {
-    padding: 3.4rem 1.45rem;
-  }
-
   .fireline-map img {
-    min-height: 18rem;
+    min-height: 0;
+    object-fit: contain;
   }
 
   .fireline-map figcaption {

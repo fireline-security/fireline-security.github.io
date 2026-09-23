@@ -72,8 +72,8 @@ function App() {
         <section class="hero" id="top" aria-labelledby="hero-title">
           <div class="site-frame hero-inner">
             <div class="hero-meta">
-              <p>Security evidence, in public</p>
-              <p>A line worth explaining</p>
+              <p>Open vulnerability &amp; risk management</p>
+              <p>The premise</p>
             </div>
             <div class="hero-title-wrap">
               <h1 id="hero-title">
@@ -82,17 +82,58 @@ function App() {
               <div class="hero-intro">
                 <Rule />
                 <p>
-                  Fireline is building a way to keep security evidence, policy,
-                  and judgment in the same frame.
+                  No company has perfect security posture. You can still define
+                  what risk can&apos;t cross, and build the visibility to know
+                  the moment it does.
                 </p>
               </div>
             </div>
           </div>
         </section>
 
-        <section class="premise" id="why" aria-labelledby="premise-title">
+        <section class="smoke-problem" id="why" aria-labelledby="smoke-title">
+          <div class="site-frame smoke-grid">
+            <p class="section-kicker section-kicker-light">The smoke problem</p>
+            <div class="smoke-copy">
+              <h2 id="smoke-title">
+                Every tool reports smoke. <span>Nobody sees the fire.</span>
+              </h2>
+              <p class="smoke-lead">
+                Semgrep sees code. Trivy sees containers. OSV sees dependencies.
+                Nuclei sees exposed systems. Each produces its own identifiers,
+                severity model, lifecycle, and pile of JSON. Teams get more
+                alerts. Situational awareness doesn&apos;t improve.
+              </p>
+              <div class="smoke-list">
+                <article>
+                  <h3>Smoke repeats</h3>
+                  <p>
+                    The same underlying risk appears several times with no
+                    durable relationship.
+                  </p>
+                </article>
+                <article>
+                  <h3>Boundaries stay implicit</h3>
+                  <p>
+                    Everyone agrees “critical is bad.” Nobody has encoded where
+                    tolerance ends.
+                  </p>
+                </article>
+                <article>
+                  <h3>Spread is invisible</h3>
+                  <p>
+                    Teams know what is open now. What crossed a boundary, or
+                    keeps returning, is a separate question.
+                  </p>
+                </article>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="premise" id="idea" aria-labelledby="premise-title">
           <div class="site-frame premise-grid">
-            <p class="section-kicker">The flawed posture</p>
+            <p class="section-kicker">Define your Fireline</p>
             <div class="premise-copy">
               <h2 id="premise-title">
                 Posture is imperfect. <span>Boundaries can be clear.</span>
@@ -101,52 +142,28 @@ function App() {
                 <p>
                   A Fireline is a versioned, explainable boundary around
                   unacceptable risk. It combines what scanners observed with the
-                  business context scanners cannot know: exposure, environment,
-                  ownership, asset importance, age, and accepted exceptions.
+                  business context your scanners cannot know: exposure,
+                  environment, ownership, asset importance, age, and accepted
+                  exceptions.
                 </p>
                 <p class="premise-emphasis">
-                  The result is a boundary a team can inspect, revise, and stand
-                  behind.
+                  This is not another magic score. Each rule is readable,
+                  reviewable, and tied to the evidence that caused it to cross.
                 </p>
               </div>
             </div>
           </div>
         </section>
 
-        <section class="refusal-section" aria-labelledby="refusal-title">
-          <div class="site-frame refusal">
-            <div class="refusal-inner">
-              <p class="section-kicker">A refusal</p>
-              <div>
-                <h2 id="refusal-title">No shortcuts through the hard part.</h2>
-                <div class="refusal-lines">
-                  <p>
-                    <span>Not</span> an opaque score that asks to be trusted.
-                  </p>
-                  <p>
-                    <span>Not</span> a flattened queue that forgets where a
-                    claim came from.
-                  </p>
-                  <p>
-                    <span>Not</span> a system that calls correlation solved
-                    before the evidence can bear it.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section class="map-section" id="idea" aria-labelledby="map-title">
+        <section class="map-section" aria-labelledby="map-title">
           <div class="site-frame map-heading">
             <div>
-              <p class="section-kicker section-kicker-light">The line</p>
-              <h2 id="map-title">Hold the whole path in view.</h2>
+              <p class="section-kicker section-kicker-light">The concept</p>
+              <h2 id="map-title">Smoke, fire, and the line between them.</h2>
             </div>
             <p>
-              A future security decision should be able to travel in both
-              directions: from source evidence to a durable concern, and back
-              again without losing its shape.
+              The ground stays messy. The line is the one thing somebody decided
+              on purpose.
             </p>
           </div>
           <figure class="site-frame fireline-map">
@@ -155,10 +172,10 @@ function App() {
               alt="A topographic map with evidence signals crossing a bright Fireline boundary on their way toward a durable concern."
             />
             <figcaption>
-              <span>Evidence</span>
-              <span>Policy</span>
+              <span>Smoke</span>
+              <span>Fireline</span>
               <span>Crossing</span>
-              <span>Concern</span>
+              <span>Fire</span>
             </figcaption>
           </figure>
         </section>
@@ -166,77 +183,53 @@ function App() {
         <section class="language" aria-labelledby="language-title">
           <div class="site-frame language-grid">
             <div class="language-heading">
-              <p class="section-kicker">A common language</p>
-              <h2 id="language-title">Nothing should disappear on the way.</h2>
+              <p class="section-kicker">Vocabulary</p>
+              <h2 id="language-title">Say it the same way every time.</h2>
             </div>
             <div class="language-list">
               <article>
-                <h3>Evidence</h3>
+                <h3>Smoke</h3>
                 <p>
-                  A claim, held with the source and context that gave it
-                  meaning.
+                  A single observation from one scanner run — Semgrep, Trivy,
+                  Nuclei, or OSV&apos;s raw, unmerged claim.
                 </p>
               </article>
               <article>
-                <h3>Policy</h3>
+                <h3>Fire</h3>
                 <p>
-                  A readable, versioned boundary that can be examined before it
-                  is enforced.
+                  The durable, correlated concern that smoke adds up to over
+                  time.
+                </p>
+              </article>
+              <article>
+                <h3>Fireline</h3>
+                <p>
+                  A versioned, explainable boundary your team draws around
+                  unacceptable risk.
                 </p>
               </article>
               <article>
                 <h3>Crossing</h3>
-                <p>
-                  A result that keeps the observed evidence beside the line it
-                  met.
-                </p>
+                <p>A finding that broke a Fireline threshold.</p>
               </article>
               <article>
-                <h3>Concern</h3>
+                <h3>Holding</h3>
                 <p>
-                  The durable issue that takes shape when repeated evidence or
-                  disagreement needs attention.
+                  Everything still inside every threshold — nothing to page
+                  anyone about.
                 </p>
               </article>
-            </div>
-          </div>
-        </section>
-
-        <section
-          class="watchtower"
-          id="watchtower"
-          aria-labelledby="watchtower-title"
-        >
-          <div class="site-frame watchtower-grid">
-            <p class="section-kicker section-kicker-light">The horizon</p>
-            <div class="watchtower-copy">
-              <div>
-                <p class="watchtower-mark" aria-hidden="true">
-                  / WATCHTOWER
-                </p>
-                <h2 id="watchtower-title">
-                  A place for the concern, not just the signal.
-                </h2>
-              </div>
-              <p>
-                Watchtower is the future place where recurring evidence can
-                become an explainable concern—without severing the thread to
-                every observation and every line it crossed.
-              </p>
             </div>
           </div>
         </section>
 
         <section class="question" aria-labelledby="question-title">
           <div class="site-frame question-inner">
-            <p class="section-kicker">The question</p>
+            <p class="section-kicker">The line</p>
             <h2 id="question-title">
-              When a security decision is challenged, can it show its work?
+              The ground stays messy. The line is the one thing somebody decided
+              on purpose.
             </h2>
-            <p>
-              Fireline is being built in the open for teams who think the answer
-              should be yes.
-            </p>
           </div>
         </section>
       </main>
