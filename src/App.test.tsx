@@ -3,21 +3,19 @@ import { describe, expect, it } from 'vitest'
 import App from './App'
 
 describe('App', () => {
-  it('renders the project story and primary navigation', () => {
+  it('renders the project vision and primary navigation', () => {
     render(() => <App />)
 
     expect(
-      screen.getByRole('heading', { name: 'Security evidence you can hold.' }),
+      screen.getByRole('heading', { name: 'Keep the evidence close.' }),
     ).toBeTruthy()
     expect(
       screen.getByRole('navigation', { name: 'Primary navigation' }),
     ).toBeTruthy()
-    expect(
-      screen.getByRole('link', { name: /explore the source/i }),
-    ).toBeTruthy()
+    expect(screen.getByText('The source is part of the decision.')).toBeTruthy()
   })
 
-  it('links each published Fireline component to its source repository', () => {
+  it('links each Fireline project repository to its source', () => {
     render(() => <App />)
 
     const repositories = [

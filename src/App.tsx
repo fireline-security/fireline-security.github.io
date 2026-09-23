@@ -1,60 +1,49 @@
 import { For } from 'solid-js'
 
-interface ProjectComponent {
+interface ProjectRepository {
   description: string
-  detail: string
   href: string
   name: string
-  status: string
 }
 
-const components: ProjectComponent[] = [
+const concepts = [
+  {
+    name: 'Smoke',
+    description:
+      'An Observation: one claim from one tool run, kept with the source context that gave it meaning.',
+  },
+  {
+    name: 'Fireline',
+    description:
+      'A readable policy boundary, expressed in versioned text and open to inspection before it is enforced.',
+  },
+  {
+    name: 'Crossing',
+    description:
+      'A result that keeps both sides in view: the evidence that was observed and the line it met.',
+  },
+]
+
+const repositories: ProjectRepository[] = [
   {
     name: 'fireline-spec',
-    status: 'Available today',
-    description: 'The canonical, versioned Observation contract.',
-    detail:
-      'JSON Schema and fixtures that give adapters and core one durable wire format.',
+    description: 'The versioned Observation contract and its fixtures.',
     href: 'https://github.com/fireline-security/fireline-spec',
   },
   {
     name: 'fireline-adapters',
-    status: 'Prototype adapters',
-    description: 'Bring scanner output into the Observation contract.',
-    detail:
-      'Gitleaks, Trivy, Aikido, and Semgrep converters preserve the source report while emitting portable JSON.',
+    description: 'Small translators for scanner reports and source evidence.',
     href: 'https://github.com/fireline-security/fireline-adapters',
   },
   {
     name: 'fireline-core',
-    status: 'Walking skeleton',
-    description: 'The application binary, policy engine, and CLI.',
-    detail:
-      'Stores immutable Observations and evaluates YAML/CEL Firelines into explainable Crossings.',
+    description: 'The application binary, storage seam, and policy engine.',
     href: 'https://github.com/fireline-security/fireline-core',
   },
   {
     name: 'fireline-web',
-    status: 'Prototype UI',
-    description: 'A Watchtower view for real core data.',
-    detail:
-      'A read-only Solid dashboard that makes today’s Observations visible without inventing domain data.',
+    description: 'A Watchtower prototype for seeing real Observations.',
     href: 'https://github.com/fireline-security/fireline-web',
-  },
-]
-
-const principles = [
-  {
-    title: 'Keep source truth',
-    body: 'A security tool made a claim. Preserve its severity, identity, and raw evidence instead of collapsing it into an opaque score.',
-  },
-  {
-    title: 'Draw policy in the open',
-    body: 'Firelines are readable rules. Their meaning should be inspectable, reviewable, and portable with the evidence they evaluate.',
-  },
-  {
-    title: 'Make crossings explainable',
-    body: 'When evidence meets a policy boundary, the result should show exactly which observation crossed which line and why.',
   },
 ]
 
@@ -85,9 +74,9 @@ function App() {
         <div class="site-frame header-inner">
           <Brand href="#top" label="Fireline home" />
           <nav class="primary-nav" aria-label="Primary navigation">
-            <a href="#approach">Approach</a>
-            <a href="#components">Components</a>
-            <a href="#build">Build with us</a>
+            <a href="#thinking">Why Fireline</a>
+            <a href="#language">Language</a>
+            <a href="#work">The work</a>
           </nav>
           <a class="header-link" href="https://github.com/fireline-security">
             GitHub <Arrow />
@@ -99,104 +88,75 @@ function App() {
         <section class="hero" id="top" aria-labelledby="hero-title">
           <div class="site-frame hero-grid">
             <div class="hero-copy">
-              <p class="eyebrow">
-                <span /> Open-source security infrastructure
-              </p>
-              <h1 id="hero-title">Security evidence you can hold.</h1>
+              <p class="eyebrow">A project about security evidence</p>
+              <h1 id="hero-title">Keep the evidence close.</h1>
               <p class="hero-lead">
-                Fireline is building a durable, explainable path from the
-                observations security tools make to the decisions teams need to
-                stand behind.
+                Fireline is an open-source project about the distance between a
+                scanner’s observation and a team’s decision. It is exploring a
+                more durable way to keep that distance visible.
               </p>
-              <div class="hero-actions">
-                <a
-                  class="button button-fire"
-                  href="https://github.com/fireline-security"
-                >
-                  Explore the source <Arrow />
-                </a>
-                <a class="text-link" href="#components">
-                  See the foundation <span aria-hidden="true">↓</span>
-                </a>
-              </div>
+              <a class="quiet-link" href="#thinking">
+                Read the thinking <span aria-hidden="true">↓</span>
+              </a>
             </div>
 
-            <div class="line-map">
-              <div class="map-header">
-                <span>Signal terrain</span>
-                <span>Policy terrain</span>
-              </div>
+            <div class="hero-art" aria-hidden="true">
+              <p>Fireline / in public</p>
+              <img src="/brand/fireline-wordmark-light.svg" alt="" />
               <svg
-                class="terrain"
-                viewBox="0 0 680 440"
+                viewBox="0 0 720 220"
                 aria-hidden="true"
                 preserveAspectRatio="none"
               >
-                <path d="M-60 82C80 21 161 137 297 72s208 16 441-25" />
-                <path d="M-52 133C76 68 174 190 304 123s202 22 422-31" />
-                <path d="M-46 188C86 117 167 246 302 174s205 28 430-33" />
-                <path d="M-40 246C90 174 183 305 317 232s202 24 422-33" />
-                <path d="M-42 304C94 230 177 372 312 294s216 25 431-39" />
-                <path d="M-34 363C100 292 179 433 320 351s216 22 425-41" />
+                <path d="M-20 177C76 179 73 61 201 74c115 11 101 119 217 99 103-18 103-138 235-117 45 7 69 35 93 48" />
+                <path d="M-12 194C94 195 94 96 204 109c104 12 96 93 203 80 99-12 100-99 232-80 40 6 69 27 101 36" />
               </svg>
-              <div class="map-route" aria-hidden="true">
-                <span class="route-point route-start" />
-                <span class="route-path" />
-                <span class="route-point route-end" />
-              </div>
-              <div class="signal-card signal-card-source">
-                <span class="signal-label">Smoke</span>
-                <strong>Source evidence</strong>
-                <small>Tool claims remain intact.</small>
-              </div>
-              <div class="signal-card signal-card-policy">
-                <span class="signal-label">Fireline</span>
-                <strong>Readable policy</strong>
-                <small>Rules meet real context.</small>
-              </div>
-              <div class="signal-card signal-card-result">
-                <span class="signal-label">Crossing</span>
-                <strong>Explainable result</strong>
-                <small>A result carries its context.</small>
-              </div>
+              <span>Observe · Define · Understand</span>
             </div>
-          </div>
-        </section>
-
-        <section class="intro-band" aria-label="Fireline vision">
-          <div class="site-frame intro-layout">
-            <p class="section-kicker">The work ahead</p>
-            <p>
-              Security teams do not need another black box that flattens
-              evidence into a number. They need a shared line between what a
-              source observed, what a team accepts, and what needs attention.
-            </p>
           </div>
         </section>
 
         <section
-          class="section principles"
-          id="approach"
-          aria-labelledby="approach-title"
+          class="statement"
+          id="thinking"
+          aria-labelledby="thinking-title"
         >
-          <div class="site-frame">
-            <div class="section-heading split-heading">
-              <div>
-                <p class="section-kicker">The approach</p>
-                <h2 id="approach-title">Make the boundary legible.</h2>
-              </div>
-              <p>
-                Fireline treats security evidence as a chain of custody, not a
-                leaderboard. The model stays small enough to explain and strong
-                enough to grow with the work.
+          <div class="site-frame statement-grid">
+            <p class="section-label">Why Fireline</p>
+            <div>
+              <h2 id="thinking-title">The source is part of the decision.</h2>
+              <p class="statement-detail">
+                Security work gathers claims from many tools, then asks people
+                to decide what they mean. That handoff is where context is often
+                lost: a finding becomes a score, a ticket, or a verdict without
+                a clear path back to the evidence.
+              </p>
+              <p class="statement-conclusion">
+                Fireline starts with a quieter premise. Keep the observation
+                intact. Make the policy readable. Let the result show its work.
               </p>
             </div>
-            <div class="principle-grid">
-              <For each={principles}>
-                {(principle) => (
-                  <article class="principle">
-                    <h3>{principle.title}</h3>
-                    <p>{principle.body}</p>
+          </div>
+        </section>
+
+        <section
+          class="vocabulary"
+          id="language"
+          aria-labelledby="language-title"
+        >
+          <div class="site-frame">
+            <div class="section-heading">
+              <p class="section-label">A shared language</p>
+              <h2 id="language-title">
+                A small vocabulary for a difficult problem.
+              </h2>
+            </div>
+            <div class="concept-grid">
+              <For each={concepts}>
+                {(concept) => (
+                  <article class="concept">
+                    <h3>{concept.name}</h3>
+                    <p>{concept.description}</p>
                   </article>
                 )}
               </For>
@@ -204,69 +164,28 @@ function App() {
           </div>
         </section>
 
-        <section class="section system" aria-labelledby="system-title">
+        <section class="work" id="work" aria-labelledby="work-title">
           <div class="site-frame">
-            <div class="section-heading centered-heading">
-              <p class="section-kicker">A shared vocabulary</p>
-              <h2 id="system-title">From signal to a line you can defend.</h2>
-            </div>
-            <ol class="system-flow">
-              <li>
-                <strong>Tools</strong>
-                <p>Scanners report what they found.</p>
-              </li>
-              <li>
-                <strong>Smoke</strong>
-                <p>Observations preserve source truth.</p>
-              </li>
-              <li>
-                <strong>Fireline</strong>
-                <p>Policy states the boundary.</p>
-              </li>
-              <li>
-                <strong>Crossing</strong>
-                <p>Evidence meets policy, visibly.</p>
-              </li>
-              <li>
-                <strong>Watchtower</strong>
-                <p>People see the line today.</p>
-              </li>
-            </ol>
-          </div>
-        </section>
-
-        <section
-          class="section components"
-          id="components"
-          aria-labelledby="components-title"
-        >
-          <div class="site-frame">
-            <div class="section-heading split-heading">
+            <div class="work-intro">
               <div>
-                <p class="section-kicker">Foundation in the open</p>
-                <h2 id="components-title">Build on what is real.</h2>
+                <p class="section-label">The work</p>
+                <h2 id="work-title">Small parts, visible seams.</h2>
               </div>
               <p>
-                Fireline is under active development. These repositories mark
-                the working foundation today and link directly to their source,
-                scope, and contribution guidance.
+                The project is being built as a set of explicit pieces. The
+                source is the record of what each piece can actually do today.
               </p>
             </div>
-            <div class="component-grid">
-              <For each={components}>
-                {(component) => (
+            <div class="repository-list">
+              <For each={repositories}>
+                {(repository) => (
                   <a
-                    class="component-card"
-                    href={component.href}
-                    aria-label={`Explore ${component.name}`}
+                    href={repository.href}
+                    aria-label={`Explore ${repository.name}`}
                   >
-                    <div class="component-topline">
-                      <span class="status-pill">{component.status}</span>
-                      <Arrow />
-                    </div>
-                    <h3>{component.name}</h3>
-                    <p class="component-summary">{component.description}</p>
-                    <p class="component-detail">{component.detail}</p>
+                    <span>{repository.name}</span>
+                    <p>{repository.description}</p>
+                    <Arrow />
                   </a>
                 )}
               </For>
@@ -274,27 +193,19 @@ function App() {
           </div>
         </section>
 
-        <section class="build" id="build" aria-labelledby="build-title">
-          <div class="site-frame build-inner">
-            <div>
-              <p class="section-kicker">Build with us</p>
-              <h2 id="build-title">
-                The line is stronger when everyone can see it.
-              </h2>
-            </div>
-            <div class="build-copy">
-              <p>
-                Explore the source, read each component’s contribution guide,
-                and help shape security policy infrastructure that stays close
-                to the evidence.
-              </p>
-              <a
-                class="button button-light"
-                href="https://github.com/fireline-security"
-              >
-                Visit Fireline on GitHub <Arrow />
-              </a>
-            </div>
+        <section class="closing" aria-labelledby="closing-title">
+          <div class="site-frame closing-inner">
+            <p class="section-label">In progress</p>
+            <h2 id="closing-title">
+              Fireline is being built in public, with the decisions left
+              visible.
+            </h2>
+            <a
+              class="quiet-link quiet-link-dark"
+              href="https://github.com/fireline-security"
+            >
+              Read the source <Arrow />
+            </a>
           </div>
         </section>
       </main>
