@@ -58,17 +58,11 @@ const principles = [
   },
 ]
 
-function FlameMark() {
+function Brand(props: { href: string; label: string }) {
   return (
-    <svg class="flame-mark" viewBox="0 0 36 36" aria-hidden="true">
-      <path
-        d="M-2 29C8 25 8 17 18 16c7-1 7-9 20-11"
-        fill="none"
-        stroke="currentColor"
-        stroke-linecap="round"
-        stroke-width="5"
-      />
-    </svg>
+    <a class="brand" href={props.href} aria-label={props.label}>
+      <img src="/brand/fireline-wordmark-light.svg" alt="" />
+    </a>
   )
 }
 
@@ -89,10 +83,7 @@ function App() {
 
       <header class="site-header">
         <div class="site-frame header-inner">
-          <a class="brand" href="#top" aria-label="Fireline home">
-            <FlameMark />
-            <span>Fireline</span>
-          </a>
+          <Brand href="#top" label="Fireline home" />
           <nav class="primary-nav" aria-label="Primary navigation">
             <a href="#approach">Approach</a>
             <a href="#components">Components</a>
@@ -133,7 +124,7 @@ function App() {
             <div class="line-map">
               <div class="map-header">
                 <span>Signal terrain</span>
-                <span>Live model</span>
+                <span>Policy terrain</span>
               </div>
               <svg
                 class="terrain"
@@ -166,7 +157,7 @@ function App() {
               <div class="signal-card signal-card-result">
                 <span class="signal-label">Crossing</span>
                 <strong>Explainable result</strong>
-                <small>Every decision has a trail.</small>
+                <small>A result carries its context.</small>
               </div>
             </div>
           </div>
@@ -310,10 +301,7 @@ function App() {
 
       <footer class="site-footer">
         <div class="site-frame footer-inner">
-          <a class="brand footer-brand" href="#top" aria-label="Back to top">
-            <FlameMark />
-            <span>Fireline</span>
-          </a>
+          <Brand href="#top" label="Back to top" />
           <p>Open source under the Apache-2.0 license.</p>
           <a href="https://github.com/fireline-security">
             GitHub <Arrow />

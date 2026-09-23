@@ -99,19 +99,14 @@ a {
 .brand {
   display: inline-flex;
   align-items: center;
-  width: fit-content;
-  gap: 0.55rem;
-  font-family: "IBM Plex Mono", ui-monospace, monospace;
-  font-size: 1.12rem;
-  font-weight: 700;
-  letter-spacing: -0.07em;
+  width: 8.3rem;
+  color: #f8f2e2;
 }
 
-.flame-mark {
-  width: 1.9rem;
-  height: 1.9rem;
-  overflow: visible;
-  color: var(--fire);
+.brand img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 .primary-nav {
@@ -712,10 +707,6 @@ h1 {
   font-size: 0.76rem;
 }
 
-.footer-brand {
-  color: #f2f3ec;
-}
-
 .footer-inner > p {
   margin: 0;
   text-align: center;
@@ -793,6 +784,10 @@ h1 {
 
   .header-link {
     font-size: 0.68rem;
+  }
+
+  .brand {
+    width: 7.35rem;
   }
 
   h1 {
