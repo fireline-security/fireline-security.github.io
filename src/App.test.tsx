@@ -44,6 +44,11 @@ describe('App', () => {
     ).toBeTruthy()
     expect(
       screen.getByRole('img', {
+        name: 'A fire lookout above a bright fireline winding through a mountain forest at dusk',
+      }),
+    ).toBeTruthy()
+    expect(
+      screen.getByRole('img', {
         name: 'A topographic map with evidence signals crossing a bright Fireline boundary on their way toward a durable concern.',
       }),
     ).toBeTruthy()

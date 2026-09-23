@@ -45,10 +45,6 @@ function Arrow() {
   )
 }
 
-function Rule() {
-  return <span class="rule" aria-hidden="true" />
-}
-
 function App() {
   return (
     <div class="site-shell">
@@ -70,23 +66,27 @@ function App() {
 
       <main id="main-content">
         <section class="hero" id="top" aria-labelledby="hero-title">
-          <div class="site-frame hero-inner">
-            <div class="hero-meta">
-              <p>Open vulnerability &amp; risk management</p>
-              <p>The premise</p>
-            </div>
-            <div class="hero-title-wrap">
-              <h1 id="hero-title">
-                Define the line. <em>Stop the spread.</em>
-              </h1>
-              <div class="hero-intro">
-                <Rule />
-                <p>
-                  No company has perfect security posture. You can still define
-                  what risk can&apos;t cross, and build the visibility to know
-                  the moment it does.
-                </p>
-              </div>
+          <div class="hero-copy">
+            <p class="kicker">Open vulnerability &amp; risk management</p>
+            <h1 id="hero-title">
+              Define the line. <span class="stroke">Stop the spread.</span>
+            </h1>
+            <p class="hero-description">
+              No company has perfect security posture. You can still define what
+              risk can&apos;t cross, and build the visibility to know the moment
+              it does.
+            </p>
+          </div>
+          <div class="hero-art">
+            <img
+              src="/brand/fireline-mark-square.svg"
+              alt="A fire lookout above a bright fireline winding through a mountain forest at dusk"
+            />
+            <div class="field-note">
+              <b>The premise</b>
+              <span>
+                Scanners report smoke. Your team defines the fireline.
+              </span>
             </div>
           </div>
         </section>
@@ -131,27 +131,24 @@ function App() {
           </div>
         </section>
 
-        <section class="premise" id="idea" aria-labelledby="premise-title">
-          <div class="site-frame premise-grid">
-            <p class="section-kicker">Define your Fireline</p>
-            <div class="premise-copy">
+        <section
+          class="definition-section"
+          id="idea"
+          aria-labelledby="premise-title"
+        >
+          <div class="definition-head">
+            <div>
+              <p class="section-kicker">Define your Fireline</p>
               <h2 id="premise-title">
                 Posture is imperfect. <span>Boundaries can be clear.</span>
               </h2>
-              <div class="premise-body">
-                <p>
-                  A Fireline is a versioned, explainable boundary around
-                  unacceptable risk. It combines what scanners observed with the
-                  business context your scanners cannot know: exposure,
-                  environment, ownership, asset importance, age, and accepted
-                  exceptions.
-                </p>
-                <p class="premise-emphasis">
-                  This is not another magic score. Each rule is readable,
-                  reviewable, and tied to the evidence that caused it to cross.
-                </p>
-              </div>
             </div>
+            <p>
+              A Fireline is a versioned, explainable boundary around
+              unacceptable risk. It combines what scanners observed with the
+              business context your scanners cannot know: exposure, environment,
+              ownership, asset importance, age, and accepted exceptions.
+            </p>
           </div>
         </section>
 
@@ -220,16 +217,6 @@ function App() {
                 </p>
               </article>
             </div>
-          </div>
-        </section>
-
-        <section class="question" aria-labelledby="question-title">
-          <div class="site-frame question-inner">
-            <p class="section-kicker">The line</p>
-            <h2 id="question-title">
-              The ground stays messy. The line is the one thing somebody decided
-              on purpose.
-            </h2>
           </div>
         </section>
       </main>
