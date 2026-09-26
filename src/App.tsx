@@ -66,27 +66,31 @@ function App() {
 
       <main id="main-content">
         <section class="hero" id="top" aria-labelledby="hero-title">
-          <div class="hero-copy">
-            <p class="kicker">Open vulnerability &amp; risk management</p>
-            <h1 id="hero-title">
-              Define the line. <span class="stroke">Stop the spread.</span>
-            </h1>
-            <p class="hero-description">
-              No company has perfect security posture. You can still define what
-              risk can&apos;t cross, and build the visibility to know the moment
-              it does.
-            </p>
-          </div>
-          <div class="hero-art">
-            <img
-              src="/brand/fireline-mark-square.svg"
-              alt="A fire lookout above a bright fireline winding through a mountain forest at dusk"
-            />
-            <div class="field-note">
-              <b>The premise</b>
-              <span>
-                Scanners report smoke. Your team defines the fireline.
-              </span>
+          <div class="hero-grid">
+            <div class="hero-copy">
+              <p class="kicker">
+                Vulnerability &amp; risk management, built in the open
+              </p>
+              <h1 id="hero-title">
+                Define the line. <span class="stroke">Stop the spread.</span>
+              </h1>
+              <p class="hero-description">
+                No company has perfect security posture. Fireline gives you a
+                way to draw the line anyway — and know the second something
+                crosses it.
+              </p>
+            </div>
+            <div class="hero-art">
+              <img
+                src="/brand/fireline-mark-square.svg"
+                alt="A fire lookout above a bright fireline winding through a mountain forest at dusk"
+              />
+              <div class="field-note">
+                <b>The premise</b>
+                <span>
+                  Scanners report smoke. Your team defines the fireline.
+                </span>
+              </div>
             </div>
           </div>
         </section>
@@ -100,30 +104,32 @@ function App() {
               </h2>
               <p class="smoke-lead">
                 Semgrep sees code. Trivy sees containers. OSV sees dependencies.
-                Nuclei sees exposed systems. Each produces its own identifiers,
-                severity model, lifecycle, and pile of JSON. Teams get more
-                alerts. Situational awareness doesn&apos;t improve.
+                Nuclei sees exposed systems. Each is right about its own corner
+                of the system and correct to know nothing about the rest — its
+                own identifiers, its own severity model, its own pile of JSON.
+                Wire them together and alerts multiply. Situational awareness
+                doesn&apos;t.
               </p>
               <div class="smoke-list">
                 <article>
                   <h3>Smoke repeats</h3>
                   <p>
-                    The same underlying risk appears several times with no
-                    durable relationship.
+                    The same risk shows up three different ways, from three
+                    different tools — and nothing connects them.
                   </p>
                 </article>
                 <article>
                   <h3>Boundaries stay implicit</h3>
                   <p>
-                    Everyone agrees “critical is bad.” Nobody has encoded where
-                    tolerance ends.
+                    Everyone agrees “critical is bad.” Nobody&apos;s written
+                    down where tolerance actually ends.
                   </p>
                 </article>
                 <article>
                   <h3>Spread is invisible</h3>
                   <p>
-                    Teams know what is open now. What crossed a boundary, or
-                    keeps returning, is a separate question.
+                    Teams can tell you what&apos;s open right now. Whether
+                    it&apos;s getting worse is anyone&apos;s guess.
                   </p>
                 </article>
               </div>
@@ -140,14 +146,18 @@ function App() {
             <div>
               <p class="section-kicker">Define your Fireline</p>
               <h2 id="premise-title">
-                Posture is imperfect. <span>Boundaries can be clear.</span>
+                Perfect posture is a myth.{' '}
+                <span>An explainable boundary isn&apos;t.</span>
               </h2>
             </div>
             <p>
               A Fireline is a versioned, explainable boundary around
-              unacceptable risk. It combines what scanners observed with the
-              business context your scanners cannot know: exposure, environment,
-              ownership, asset importance, age, and accepted exceptions.
+              unacceptable risk. Most platforms sell you one and lock the logic
+              behind it. Fireline ships that logic as open source — read it, run
+              it, change what doesn&apos;t fit. It combines what scanners
+              observed with the context they can&apos;t see: exposure,
+              environment, ownership, asset importance, age, and the exceptions
+              someone actually signed off on.
             </p>
           </div>
         </section>
@@ -159,8 +169,9 @@ function App() {
               <h2 id="map-title">Smoke, fire, and the line between them.</h2>
             </div>
             <p>
-              The ground stays messy. The line is the one thing somebody decided
-              on purpose.
+              The ground stays messy. That&apos;s the scanners&apos; job. The
+              line is the one thing your team decided on purpose — and can show
+              anyone how they got there.
             </p>
           </div>
           <figure class="site-frame fireline-map">
@@ -210,7 +221,7 @@ function App() {
                 <p>A finding that broke a Fireline threshold.</p>
               </article>
               <article>
-                <h3>Holding</h3>
+                <h3>Clear</h3>
                 <p>
                   Everything still inside every threshold — nothing to page
                   anyone about.
@@ -243,7 +254,7 @@ function App() {
           </For>
         </nav>
         <div class="site-frame footer-bottom">
-          <p>Open source under the Apache-2.0 license.</p>
+          <p>Open source, Apache-2.0 licensed — read it, run it, fork it.</p>
           <p>Fireline / Define the line.</p>
         </div>
       </footer>

@@ -18,7 +18,7 @@ describe('App', () => {
     ).toBeTruthy()
     expect(
       screen.getByRole('heading', {
-        name: 'Posture is imperfect. Boundaries can be clear.',
+        name: "Perfect posture is a myth. An explainable boundary isn't.",
       }),
     ).toBeTruthy()
     expect(
@@ -39,6 +39,21 @@ describe('App', () => {
     ).toBeTruthy()
     expect(
       screen.getByText('Everything still inside every threshold', {
+        exact: false,
+      }),
+    ).toBeTruthy()
+    expect(
+      screen.getByText('know the second something crosses it', {
+        exact: false,
+      }),
+    ).toBeTruthy()
+    expect(
+      screen.getByText('Fireline ships that logic as open source', {
+        exact: false,
+      }),
+    ).toBeTruthy()
+    expect(
+      screen.getByText('read it, run it, fork it', {
         exact: false,
       }),
     ).toBeTruthy()
